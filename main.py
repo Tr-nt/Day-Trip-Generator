@@ -10,12 +10,14 @@ def num_generator():
 
 
 #contains destination list and will randomly generate destination for user
-def get_destination():
+def get_destination(des_key):
     potential_des = ['Tokyo','Norway','Greece','Toronto','Hawaii','Seoul']
 
 def get_restaurant(des_key):
-    destination_keys = {'tokyo': '1', 'norway': ' 2', 'greece': '3','toronto': ' 4', 'hawaii': '5', 'seoul': '6'}
-    
+    destination_keys = {1 : 'tokyo', 2 : 'norway', 3 : 'greece',4 : 'toronto', 5: 'hawaii', 6: 'seoul'}
+    value = destination_keys.get(des_key)
+    return value 
+   
 
 
 

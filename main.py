@@ -8,7 +8,29 @@ def day_generator():
         gen_key = random.randint(0,value)
         return gen_key
 
+    
+    def validator_message():
+        print("Did you like the selection?\n Please type Y for Yes or N for No to continue.")
+    
+    #validates state with bool value
+    def validator():
+        valid = 'y' 
+        invalid = 'n'
+        
+        try:
+            check = str(input())
+        except ValueError:
+            print("That was an invalid input")
+        except:
+            print("Invalid input")
+                
+        
+        if check.lower() == valid:
+            return True
+        elif check.lower() == invalid:
+            return False
 
+    
     #Randomly generates destination
     def get_destination(des_key):
         potential_des = {0: 'Tokyo, Japan',1: "Oslo, Norway",2: 'Athens, Greece',3: 'Toronto, Canada',4: 'Honolulu, Hawaii',5: 'Seoul, South Korea'}
@@ -24,13 +46,13 @@ def day_generator():
         return list_value 
 
     # Randomly generates transportation
-    def transportation(des_key):
+    def get_transportation(des_key):
         transport_choices = {0: 'Rental car', 1: 'Bus', 2: 'Bicycle', 3: 'Train', 4: 'Walking'}
         transport = transport_choices.get(des_key)
         return transport
     
     #Randomly generates activities
-    def activities(des_name):
+    def get_activity(des_name):
         active_list = {'Tokyo, Japan': ['Tokyo Disneyland', 'Shinjuku Gyoen National Garden', 'Ninja Museum'], 'Oslo, Norway': ['Viking Ship Museum','Vigeland Park','Oslo Opera House'],'Athens, Greece': ['Acropolis','Psiri','The National Gardens'], 'Toronto, Canada': ['CN Tower','Toronto Zoo','Graffiti Alley'], 'Honolulu, Hawaii': ['Wakiki Beach','Manoa Falls','Bishop Museum'], 'Seoul, South Korea': ['Gyeongbokgung Palace','National Museum at Korea','Namsan']}
         
         values = active_list.get(des_name)
@@ -38,5 +60,12 @@ def day_generator():
         list_value = values[index]
         return list_value 
 
+
+    
+
+    check_value = validator()
+    print (check_value)
+
+#day_generator()
 
 

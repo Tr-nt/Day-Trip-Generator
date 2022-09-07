@@ -10,25 +10,25 @@ def day_generator():
 
     
     def validator_message():
-        print("Did you like the selection?\n Please type Y for Yes or N for No to continue.")
+        print("Did you like the selection?\nPlease type Y for Yes or N for No to continue.")
     
     #validates state with bool value
     def validator():
         valid = 'y' 
         invalid = 'n'
         
-        try:
-            check = str(input())
-        except ValueError:
-            print("That was an invalid input")
-        except:
-            print("Invalid input")
-                
         
-        if check.lower() == valid:
+        check = str(input()).lower()
+
+                
+        if check == valid:
             return True
-        elif check.lower() == invalid:
+        elif check == invalid:
             return False
+        elif check != valid and check != invalid:
+            validator_message()
+            return validator()
+            
 
     
     #Randomly generates destination
@@ -66,6 +66,6 @@ def day_generator():
     check_value = validator()
     print (check_value)
 
-#day_generator()
+day_generator()
 
 
